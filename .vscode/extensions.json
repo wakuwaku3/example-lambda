@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "mauve.terraform",
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint"
+  ]
+}

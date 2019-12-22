@@ -1,0 +1,8 @@
+{
+  "name": "example",
+  "description": "example",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::578651852590:role/example_lambda_function",
+  "environment": {}
+}

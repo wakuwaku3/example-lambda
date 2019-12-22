@@ -1,0 +1,20 @@
+import { Container } from 'inversify';
+import 'reflect-metadata';
+import { SlackService } from '../slack/slack-service';
+import { ISlackService } from '../slack/interfaces';
+import { slackService, notifyUsecase, event, clock, reminder } from './symbols';
+import { NotifyUsecase } from '../../usecases/notify-usecase';
+import { INotifyUsecase } from '../../usecases/interfaces';
+import { IEvent } from '../../domain/attendance/interfaces';
+import { Event } from '../../domain/attendance/event';
+import { IClock } from '../../domain/system/interfaces';
+import { Clock } from '../../domain/system/clock';
+import { IReminder } from '../../domain/notification/interfaces';
+import { Reminder } from '../../domain/notification/reminder';
+
+export const container = new Container();
+container.bind<ISlackService>(slackService).to(SlackService);
+container.bind<INotifyUsecase>(notifyUsecase).to(NotifyUsecase);
+container.bind<IEvent>(event).to(Event);
+container.bind<IClock>(clock).to(Clock);
+container.bind<IReminder>(reminder).to(Reminder);

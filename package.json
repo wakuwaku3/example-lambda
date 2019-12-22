@@ -1,0 +1,30 @@
+{
+  "name": "example-lambda",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.33",
+    "@types/node": "^12.7.11",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.4.0",
+    "aws-sdk": "^2.543.0",
+    "eslint": "^6.5.1",
+    "glob": "^7.1.4",
+    "path": "^0.12.7",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "@types/request": "^2.48.3",
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.13",
+    "request": "^2.88.0"
+  }
+}

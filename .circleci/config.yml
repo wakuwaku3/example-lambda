@@ -1,0 +1,61 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: hashicorp/terraform:light
+    steps:
+      - checkout
+      - run:
+          name: Install npm
+          command: apk add --update npm
+      - run:
+          name: npm install
+          command: npm install
+      - run:
+          name: build
+          command: npx webpack
+  deploy:
+    docker:
+      - image: hashicorp/terraform:light
+    steps:
+      - checkout
+      - run:
+          name: Install npm and curl and envsubst
+          command: apk add --update npm curl gettext
+      - run:
+          name: Install Apex
+          command: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
+      - run:
+          name: npm install
+          command: npm install
+      - run:
+          name: build
+          command: npx webpack
+      - run:
+          name: set env hello
+          command: envsubst < src/functions/hello/function.json > functions/hello/function.json
+      - run:
+          name: Deploy Apex
+          command: apex deploy
+      - run:
+          name: Init Apex infra
+          command: apex infra init
+      - run:
+          name: Apply Apex infra
+          command: apex infra apply -auto-approve
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+\.[0-9]+\.[0-9]+$/

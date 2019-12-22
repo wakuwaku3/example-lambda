@@ -1,0 +1,11 @@
+{
+  "prettier.singleQuote": true,
+  "cSpell.words": [
+    "envsubst",
+    "gettext",
+    "hashicorp",
+    "inversify",
+    "usecase",
+    "usecases"
+  ]
+}

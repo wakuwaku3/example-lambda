@@ -1,0 +1,10 @@
+{
+  "description": "",
+  "memory": 128,
+  "timeout": 5,
+  "runtime": "nodejs10.x",
+  "role": "arn:aws:iam::578651852590:role/example_lambda_function",
+  "environment": {
+    "SLACK_ENDPOINT": "${SLACK_ENDPOINT}"
+  }
+}
